@@ -1,0 +1,13 @@
+<table mat-table [dataSource]="dataSource" matSort>
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Sucursal </th>
+    <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+              (click)="redirectToSelect(row.id)"
+              (mouseover)="highlightRow(row)"
+              [ngClass] = "{'highlight' : row.nombre == selectedNombre}"
+              class="pointer"></tr>
+</table>
